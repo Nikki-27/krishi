@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} KrishiKhoj {% endblock %}
+{% block css %}
+<style>
+  .container{
+    width: 80%;
+    height: 80vh;
+    padding: 10px;
+    background: rgba(255,255,255,.2);
+    box-shadow: 0 5px 15px rgba(0,0, 0, .5);
+    margin-top: 15px;
+  }
+  form{
+    font-weight: 900;
+  }
+</style>
+{% endblock %}
+
+
+{% block body %} 
+<div class="container">
+    
+      <h3>Please Fill The Form</h3>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="form-group mb-3">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+        </div>
+      {% endfor %}
+      <input type="submit" value="Submit" class="btn btn-success">
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+         <p class="alert alert-danger my-3">{{error}}</p>
+        {% endfor %}
+      {% endif %}
+
+     </form>
+    </div>
+    
+
+{% endblock %}
+

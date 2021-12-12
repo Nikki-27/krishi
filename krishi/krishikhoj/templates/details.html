@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+    .container{
+        width: 80%;
+    height: 80vh;
+    padding: 10px;
+    background: rgba(255,255,255,.2);
+    box-shadow: 0 5px 15px rgba(0,0, 0, .5);
+    margin-top: 15px;
+    margin-left: 10%;
+    overflow: scroll;
+    }
+    .col-sm-10{
+        background-color: burlywood;
+        font-weight: bolder;
+    }
+</style>
+{% endblock %}
+{% block body %}
+{% for farmer in farmers %}
+<div class="container">
+    <h1 class=" text-center p-3">Farmer Detail</h1>
+    <div class="row">
+     <div class="col-sm-10 shadow p-5 offset-sm-1">
+      <h3 class="text-center"><u></u></h3>
+      <p class="float-end">Applicantion No: {{farmer.id}}</p>
+      <p>Name: {{farmer.name}}</p>
+      <p>Address: {{farmer.city}}, {{farmer.state}} - {{farmer.zip}}</p>
+      <p>Phone No: {{farmer.phone}}</p>
+      <p>No. of tractors farmer have : {{farmer.ntractor}}</p>
+      <p>Implements that farmer have : {{farmer.implements}}</p>
+     <div class="text-center">
+      <a href="/" class="btn btn-success">Back to Home</a>
+     </div>
+     </div>
+    </div>
+   </div>
+{% endfor %}
+{% endblock %}

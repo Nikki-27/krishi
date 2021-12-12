@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Details {% endblock %}
+{% block css %}
+<style>
+    .col-sm-4{
+    width: 80%;
+    height: 80vh;
+    padding: 10px;
+    background: rgba(255,255,255,.2);
+    box-shadow: 0 5px 15px rgba(0,0, 0, .5);
+    margin-top: 15px;
+    margin-left: 10%;
+    overflow: scroll;
+    }
+    a{
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="col-sm-4">
+    <h4 class="text-center mb-3"><u>List of Farmers</u></h4>
+    {% for farmer in farmer %}
+     <div>
+         <ul>
+        <li><a href="/{{farmer.id}}" class="name card-title" id="cname">{{farmer.name}}</a></li>
+      </div>
+     <hr>
+    </ul>
+    {% endfor %}
+   </div>
+{% endblock %}
+
+
+ 
